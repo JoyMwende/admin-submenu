@@ -33,7 +33,7 @@ class AdminPageWithCallbacks extends BaseController{
 
       
 
-        $this->settings->AddPages( $this->pages )->HasSubPage('Register Student')->addSubPages($this->subpages)->register();
+        $this->settings->AddPages( $this->pages )->HasSubPage('View Student')->addSubPages($this->subpages)->register();
     }
 
     public function createAdminMenus(){
@@ -44,8 +44,8 @@ class AdminPageWithCallbacks extends BaseController{
                 'capability' => 'manage_options',
                 'menu_slug'=> 'students_menu',
                 'callback'=> [$this->callbacks, 'viewStudents'],
-                'icon_url'=> 'dashicons-welcome-write-blog',
-                'position'=> 110
+                'icon_url'=> 'dashicons-buddicons-buddypress-logo',
+                'position'=> 200
             ]
         ];
     }
