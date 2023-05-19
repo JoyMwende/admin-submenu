@@ -21,12 +21,12 @@ class AdminPanel extends BaseController{
         
     $this->pages= [
         [
-            'page_title'=> 'Student Menu',
-            'menu_title'=> 'Student Menu',
+            'page_title'=> 'Employee Menu',
+            'menu_title'=> 'Employee Menu',
             'capability' => 'manage_options',
-            'menu_slug'=> 'students_menu',
+            'menu_slug'=> 'employees_menu',
             'callback'=> function(){
-                echo '<h1> Students Menu </h1>';
+                echo '<h1> Employees Menu </h1>';
             },
             'icon_url'=> 'dashicons-buddicons-buddypress-logo',
             'position'=> 200
@@ -35,40 +35,40 @@ class AdminPanel extends BaseController{
 
     $this->subpages =[
         [
-            'parent_slug'=> 'students_menu',
-            'page_title' => 'Register student',
-            'menu_title' => 'Register Student',
+            'parent_slug'=> 'employees_menu',
+            'page_title' => 'Register Employee',
+            'menu_title' => 'Register Employee',
             'capability' => 'manage_options',
-            'menu_slug' => 'register_students',
+            'menu_slug' => 'register_employees',
             'callback' => function() {
-                echo '<h1> Register Students </h1>';
+                echo '<h1> Register Employees </h1>';
             }
         ],
         [
-            'parent_slug'=> 'students_menu',
-            'page_title' => 'Update Student',
-            'menu_title' => 'Update Student',
+            'parent_slug'=> 'employees_menu',
+            'page_title' => 'Update Employee',
+            'menu_title' => 'Update Employee',
             'capability' => 'manage_options',
-            'menu_slug' => 'update_students',
+            'menu_slug' => 'update_employees',
             'callback' => function() {
-                echo '<h1> Update Student </h1>';
+                echo '<h1> Update Employee </h1>';
             }
         ],
         [
-            'parent_slug'=> 'students_menu',
-            'page_title' => 'View Students',
-            'menu_title' => 'View Students',
+            'parent_slug'=> 'employees_menu',
+            'page_title' => 'View Employees',
+            'menu_title' => 'View Employees',
             'capability' => 'manage_options',
-            'menu_slug' => 'view_students',
+            'menu_slug' => 'view_employees',
             'callback' => function() {
-                echo '<h1> View Students </h1>';
+                echo '<h1> View Employees </h1>';
             }
         ]
     ];
     }
 
     function register(){
-        $this->settings->AddPages( $this->pages )->HasSubPage('View Students')->addSubPages($this->subpages)->register();
+        $this->settings->AddPages( $this->pages )->HasSubPage('View Employees')->addSubPages($this->subpages)->register();
     }
 
 

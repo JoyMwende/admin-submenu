@@ -33,17 +33,17 @@ class AdminPageWithCallbacks extends BaseController{
 
       
 
-        $this->settings->AddPages( $this->pages )->HasSubPage('View Student')->addSubPages($this->subpages)->register();
+        $this->settings->AddPages( $this->pages )->HasSubPage('View Employee')->addSubPages($this->subpages)->register();
     }
 
     public function createAdminMenus(){
         $this->pages= [
             [
-                'page_title'=> 'Students Menu',
-                'menu_title'=> 'Students Menu',
+                'page_title'=> 'Employees Menu',
+                'menu_title'=> 'Employees Menu',
                 'capability' => 'manage_options',
-                'menu_slug'=> 'students_menu',
-                'callback'=> [$this->callbacks, 'viewStudents'],
+                'menu_slug'=> 'employees_menu',
+                'callback'=> [$this->callbacks, 'viewEmployees'],
                 'icon_url'=> 'dashicons-buddicons-buddypress-logo',
                 'position'=> 200
             ]
@@ -54,28 +54,28 @@ class AdminPageWithCallbacks extends BaseController{
         $this->subpages =[
 
             [
-                'parent_slug'=> 'students_menu',
-                'page_title' => 'View Students',
-                'menu_title' => 'View Students',
+                'parent_slug'=> 'employees_menu',
+                'page_title' => 'View Employees',
+                'menu_title' => 'View Employees',
                 'capability' => 'manage_options',
-                'menu_slug' => 'view_students',
-                'callback' => [$this->callbacks, 'viewStudents']
+                'menu_slug' => 'view_employees',
+                'callback' => [$this->callbacks, 'viewEmployees']
             ],
             [
-                'parent_slug'=> 'students_menu',
-                'page_title' => 'Register Student',
-                'menu_title' => 'Register Student',
+                'parent_slug'=> 'Employees_menu',
+                'page_title' => 'Register Employee',
+                'menu_title' => 'Register Employee',
                 'capability' => 'manage_options',
-                'menu_slug' => 'register_students',
-                'callback' => [$this->callbacks, 'registerStudents']
+                'menu_slug' => 'register_employees',
+                'callback' => [$this->callbacks, 'registerEmployees']
             ],
             [
-                'parent_slug'=> 'students_menu',
-                'page_title' => 'Update Students',
-                'menu_title' => 'Update Students',
+                'parent_slug'=> 'employees_menu',
+                'page_title' => 'Update Employees',
+                'menu_title' => 'Update Employees',
                 'capability' => 'manage_options',
-                'menu_slug' => 'update_students',
-                'callback' => [$this->callbacks, 'updateStudents']
+                'menu_slug' => 'update_employees',
+                'callback' => [$this->callbacks, 'updateEmployees']
             ]
         ];
     }

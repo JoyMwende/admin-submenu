@@ -16,7 +16,7 @@ final class init{
         return [
             Pages\AdminPanel::class,
             Base\Enqueue::class,
-            Pages\RegisterStudents::class,
+            Pages\RegisterEmployees::class,
             Pages\AdminPageWithCallbacks::class,        ];
     }
     public static function register_services(){
