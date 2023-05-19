@@ -1,0 +1,16 @@
+{
+    "name": "joy/submenu",
+    "description": "This is a plugin to inmplement admin submenu",
+    "type": "project",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "joy"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {"Inc\\":"./inc"}
+    }
+}
