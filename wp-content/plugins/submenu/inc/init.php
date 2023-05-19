@@ -14,7 +14,6 @@ final class init{
      */
     public static function get_services(){
         return [
-            Pages\AdminPanel::class,
             Base\Enqueue::class,
             Pages\RegisterEmployees::class,
             Pages\AdminPageWithCallbacks::class,        ];

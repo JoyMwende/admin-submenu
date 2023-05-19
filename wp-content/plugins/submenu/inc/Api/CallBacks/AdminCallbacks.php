@@ -13,12 +13,8 @@ class AdminCallbacks extends BaseController{
         return require_once $this->plugin_path.'templates/view-employees.php'; 
     }
 
-    public function registeremployees(){
+    public function registerEmployees(){
         return require_once $this->plugin_path.'templates/register-employees.php';
-    }
-
-    public function updateEmployees(){
-        return require_once $this->plugin_path.'templates/update-employees.php';
     }
 
     

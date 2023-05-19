@@ -55,27 +55,11 @@ class AdminPageWithCallbacks extends BaseController{
 
             [
                 'parent_slug'=> 'employees_menu',
-                'page_title' => 'View Employees',
-                'menu_title' => 'View Employees',
-                'capability' => 'manage_options',
-                'menu_slug' => 'view_employees',
-                'callback' => [$this->callbacks, 'viewEmployees']
-            ],
-            [
-                'parent_slug'=> 'Employees_menu',
-                'page_title' => 'Register Employee',
-                'menu_title' => 'Register Employee',
+                'page_title' => 'Register Employees',
+                'menu_title' => 'Register Employees',
                 'capability' => 'manage_options',
                 'menu_slug' => 'register_employees',
                 'callback' => [$this->callbacks, 'registerEmployees']
-            ],
-            [
-                'parent_slug'=> 'employees_menu',
-                'page_title' => 'Update Employees',
-                'menu_title' => 'Update Employees',
-                'capability' => 'manage_options',
-                'menu_slug' => 'update_employees',
-                'callback' => [$this->callbacks, 'updateEmployees']
             ]
         ];
     }

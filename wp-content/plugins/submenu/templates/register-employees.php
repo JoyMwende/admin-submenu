@@ -45,18 +45,18 @@
         }
     ?>
     <h3>Register Employee</h3>
-    <form>
+    <form action="" method="post">
   <div class="form-group mb-3">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" placeholder="Enter your full name here">
+    <input type="text" class="form-control" name="name" placeholder="Enter your full name here">
   </div>
   <div class="form-group mb-3">
     <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" placeholder="Enter your email here">
+    <input type="email" class="form-control" name="email" placeholder="Enter your email here">
   </div>
   <div class="form-group mb-4">
     <label for="phone_no">Phone Number</label>
-    <input type="text" class="form-control" id="phone_no" placeholder="Enter your phone number here">
+    <input type="tel" class="form-control" name="phone_no" placeholder="Enter your phone number here">
   </div>
   <div>
     <form action="" method="post">
