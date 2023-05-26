@@ -45,3 +45,80 @@ $successmessage;
 
 global $errormessage;
 $errormessage;
+
+//secure admin dashboard
+
+
+//limit login attempts
+function check_login_attempts($user, $username, $password){
+    if(get_transient('tried_to_login')){
+        $info = get_transient('tried_to_login');
+
+        if($info['attempted'] >= 5){
+            $times = get_option("_transient_timeout_". 'tried_to_login');
+            $calculated_time = time_left($times);
+
+            return new WP_Error('you have tried many times', sprintf(__('<strong>ALERT</strong>: You have reached the login limit attempts, please try logging in again after %1$s'), $calculated_time));
+        }
+    }
+
+    return $user;
+}
+
+add_filter('authenticate', 'check_login_attempts', 30, 3);
+
+function failed_login($username){
+    if(get_transient('tried_to_login')){
+        $info = get_transient('tried_to_login');
+
+        $info['attempted']++;
+
+        if($info['attempted'] <= 5)
+            set_transient('tried_to_login', $info, 180);
+    } else {
+        $info = [
+            'attempted' => 1
+        ];
+        set_transient('tried_to_login', $info, 180);
+    }
+}
+add_action('wp_login_failed', 'failed_login', 10, 1);
+
+function time_left($time){
+    $times = [
+        'second',
+        'minute',
+        'hour',
+        'day',
+        'week',
+        'month',
+        'year'
+    ];
+
+    $times_length = [
+        '60',
+        '60',
+        '24',
+        '7',
+        '4.35',
+        '12'
+    ];
+
+    $present_time = time();
+    $diff = abs($present_time - $time);
+
+    for($x = 0; $diff >= $times_length[$x] && $x < count($times) - 1; $x++){
+        $diff /= $times_length[$x];
+    }
+
+    //countdown
+    $diff = round($diff);
+
+    if(isset($diff)){
+        if($diff != 1){
+            $times[$x] .= 's';
+            $result = "$diff $times[$x]";
+            return $result;
+        }
+    }
+}
