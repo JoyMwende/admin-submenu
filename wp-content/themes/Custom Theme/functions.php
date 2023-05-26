@@ -67,7 +67,7 @@ function check_login_attempts($user, $username, $password){
 
 add_filter('authenticate', 'check_login_attempts', 30, 3);
 
-function failed_login($username){
+function check_failed_login($username){
     if(get_transient('tried_to_login')){
         $info = get_transient('tried_to_login');
 
@@ -82,7 +82,7 @@ function failed_login($username){
         set_transient('tried_to_login', $info, 180);
     }
 }
-add_action('wp_login_failed', 'failed_login', 10, 1);
+add_action('wp_login_failed', 'check_failed_login', 10, 1);
 
 function time_left($time){
     $times = [
